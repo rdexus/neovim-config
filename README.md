@@ -1,6 +1,10 @@
-# Keymapping
+# Neovim config
 
-## General
+This is my custom neovim config. The keymap below is outdated maybe I will update it sometime.
+
+## Keymap
+
+### General
 | **Mode** | **Keymap**  | **Description**         |
 |----------|-------------|-------------------------|
 | v        | J           | Move selected line down |
@@ -11,7 +15,7 @@
 | n        | leader+bc   | Close buffer            |
 
 
-## Lsp
+### Lsp
 | **Mode** | **Keymap**  | **Description**      |
 |----------|-------------|----------------------|
 | n        | gd          | Go to definition     |
@@ -27,7 +31,7 @@
 | i        | CTRL+h      | Signature help       |
 
 
-## Telescope
+### Telescope
 | **Mode** | **Keymap**  | **Description**      |
 |----------|-------------|----------------------|
 | n        | leader+ff   | Find files           |
@@ -40,7 +44,7 @@
 | n        | leader+pWs  | Find cWORD           |
 
 
-## Snippets
+### Snippets
 | **Mode** | **Keymap**  | **Description**                 |
 |----------|-------------|---------------------------------|
 | n        | leader+af   | Generate function documentation |
