@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("rdexus.set")
+require("rdexus.options")
 require("rdexus.remap")
 require("rdexus.autocmds")
 
