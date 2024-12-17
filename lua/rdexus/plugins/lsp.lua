@@ -30,7 +30,7 @@ return {
                 "eslint",
                 "html",
                 "jsonls",
-                "tsserver",
+                "ts_ls",
                 "intelephense",
                 -- phpactor didn't work anymore for some reason so I'm using the free version of intelephense for the time being.
                 -- I do prefer the speed of intelephense over phpactor so I might get the premium version for more features.
@@ -41,29 +41,6 @@ return {
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities
                     })
-                end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = {
-                                        "vim",
-                                        "Config",
-                                    }
-                                },
-                                workspace = {
-                                    library = {
-                                        vim.env.VIMRUNTIME,
-                                        "/home/dexus/repositories/fivem-lls-addon/addon/library",
-                                    },
-                                },
-                            }
-                        }
-                    }
                 end,
             }
         })
