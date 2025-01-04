@@ -1,0 +1,22 @@
+return {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+        require('bufferline').setup({})
+
+        vim.keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>");
+        vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>");
+        vim.keymap.set("n", "<leader>btp", ":BufferLineTogglePin<CR>");
+        vim.keymap.set("n", "<leader>bmn", ":BufferLineMoveNext<CR>");
+        vim.keymap.set("n", "<leader>bmp", ":BufferLineMovePrev<CR>");
+    end,
+    -- for some reason bufferline does not initialize correctly using the keys option
+    -- keys = {
+        -- { '<leader>bn', '<cmd>BufferLineCycleNext<cr>', desc = 'Go to next buffer', mode = 'n' },
+        -- { '<leader>bp', '<cmd>BufferLineCyclePrev<cr>', desc = 'Go to previous buffer', mode = 'n' },
+        -- { '<leader>btp', '<cmd>BufferLineTogglePin<cr>', desc = 'Toggle if the tab is pinned or not', mode = 'n' },
+        -- { '<leader>bmn', '<cmd>BufferLineMoveNext<cr>', desc = 'Move tab forward', mode = 'n' },
+        -- { '<leader>bmp', '<cmd>BufferLineMovePrev<cr>', desc = 'Move tab backwards', mode = 'n' },
+    -- },
+}
