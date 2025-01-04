@@ -12,7 +12,6 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
     },
-
     config = function()
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
@@ -47,7 +46,6 @@ return {
 
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -60,21 +58,25 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
-            }, {
-                { name = 'buffer' },
-            })
+            sources = cmp.config.sources(
+                {
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' }, -- For luasnip users.
+                },
+                { { name = 'buffer' } }
+            )
         })
 
         -- Set configuration for specific filetype.
         cmp.setup.filetype('gitcommit', {
-            sources = cmp.config.sources({
-                { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-            }, {
-                { name = 'buffer' },
-            })
+            sources = cmp.config.sources(
+                {
+                    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+                },
+                {
+                    { name = 'buffer' },
+                }
+            )
         })
 
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -88,13 +90,13 @@ return {
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = 'path' }
-            }, {
-                { name = 'cmdline' }
-            })
+            sources = cmp.config.sources(
+                { { name = 'path' } },
+                { { name = 'cmdline' } }
+            )
         })
 
+        -- lsp mapping
         local autocmd = vim.api.nvim_create_autocmd
         local augroup = vim.api.nvim_create_augroup
         augroup('rDexus', {})
@@ -115,13 +117,6 @@ return {
                 vim.keymap.set("n", "<leader>vf", function() vim.lsp.buf.format() end, opts)
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
             end
-        })
-
-        vim.diagnostic.config({
-            signs = false,
-            virtual_text = false,
-            severity_sort = true,
-            update_in_insert = true,
         })
     end
 }

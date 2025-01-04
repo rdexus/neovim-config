@@ -1,4 +1,4 @@
--- Options
+-- options
 vim.opt.guicursor = ''
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -28,8 +28,14 @@ vim.opt.breakindent = true
 vim.opt.numberwidth = 2
 vim.opt.title = true
 vim.opt.confirm = true
-
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
+
+vim.diagnostic.config({
+  signs = false,
+  virtual_text = false,
+  severity_sort = true,
+  update_in_insert = true,
+})
