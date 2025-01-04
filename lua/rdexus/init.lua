@@ -1,4 +1,4 @@
-require("rdexus.options")
-require("rdexus.keymapping")
-require("rdexus.autocommands")
-require("rdexus.lazy")
+require("rdexus.config.options")
+require("rdexus.config.keymapping")
+require("rdexus.config.autocommands")
+require("rdexus.config.lazy")
