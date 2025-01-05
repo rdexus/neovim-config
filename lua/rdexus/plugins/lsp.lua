@@ -100,7 +100,7 @@ return {
                     end,
 
                     ["cssls"] = function()
-                        local capabilities = vim.lsp.protocol.make_client_capabilities()
+                        local capabilities = lspconfig_defaults.capabilities
                         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
                         require('lspconfig').cssls.setup {
