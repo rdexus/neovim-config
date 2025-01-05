@@ -73,7 +73,9 @@ return {
 
             mason.setup()
             mason_lspconfig.setup({
+                automatic_installation = true,
                 ensure_installed = {
+                    -- lsps
                     "bashls",
                     "gopls",
                     "lua_ls",
@@ -84,11 +86,27 @@ return {
                     "ts_ls",
                     "jsonls",
                     "cssls", -- change the capabilities so it has completion
+                    -- linters
+                    "eslint_d",
+                    "phpstan",
+                    "htmlhint",
+                    -- formatters
+                    "php-cs-fixer",
+                    "prettier",
                 },
                 handlers = {
                     function(server_name)
                         nvim_lsp[server_name].setup({})
                     end,
+
+                    ["cssls"] = function()
+                        local capabilities = vim.lsp.protocol.make_client_capabilities()
+                        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+                        require('lspconfig').cssls.setup {
+                            capabilities = capabilities,
+                        }
+                    end
                 },
             })
 
