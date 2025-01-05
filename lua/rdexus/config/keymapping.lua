@@ -7,7 +7,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- show netrw
--- vim.keymap.set("n", "<leader>e", ":Explore<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>e", ":Rexplore<CR>", { noremap = true, silent = true })
 
 -- close buffer
 vim.keymap.set("n", "<leader>bc", ":bd<CR>", { noremap = true, silent = true })

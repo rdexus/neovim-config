@@ -85,14 +85,14 @@ return {
                     "html",
                     "ts_ls",
                     "jsonls",
-                    "cssls", -- change the capabilities so it has completion
+                    "cssls",
                     -- linters
-                    "eslint_d",
-                    "phpstan",
-                    "htmlhint",
+                    -- "eslint_d",
+                    -- "phpstan",
+                    -- "htmlhint",
                     -- formatters
-                    "php-cs-fixer",
-                    "prettier",
+                    -- "php-cs-fixer",
+                    -- "prettier",
                 },
                 handlers = {
                     function(server_name)
