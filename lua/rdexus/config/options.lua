@@ -16,7 +16,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
 vim.opt.backup = false
-vim.opt.clipboard = 'unnamedplus'
 vim.opt.showtabline = 0
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -28,11 +27,22 @@ vim.opt.breakindent = true
 vim.opt.numberwidth = 2
 vim.opt.title = true
 vim.opt.confirm = true
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+vim.opt.showmode = false
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
+vim.opt.preserveindent = true
+vim.opt.swapfile = false
 
+-- set clipboard
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end)
 
+-- netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- open float diagnostic window
 vim.diagnostic.config({
   signs = false,
   virtual_text = false,
