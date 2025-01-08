@@ -60,15 +60,15 @@ return {
         },
         config = function()
             require("fidget").setup()
-            local nvim_lsp = require('lspconfig')
-            local mason = require('mason')
-            local mason_lspconfig = require('mason-lspconfig')
+            local nvim_lsp = require("lspconfig")
+            local mason = require("mason")
+            local mason_lspconfig = require("mason-lspconfig")
 
             local lspconfig_defaults = nvim_lsp.util.default_config
             lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-                'force',
+                "force",
                 lspconfig_defaults.capabilities,
-                require('cmp_nvim_lsp').default_capabilities()
+                require("cmp_nvim_lsp").default_capabilities()
             )
 
             mason.setup()
@@ -103,7 +103,7 @@ return {
                         local capabilities = lspconfig_defaults.capabilities
                         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-                        require('lspconfig').cssls.setup {
+                        require("lspconfig").cssls.setup {
                             capabilities = capabilities,
                         }
                     end

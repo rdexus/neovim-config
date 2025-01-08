@@ -13,10 +13,10 @@ vim.keymap.set("n", "<leader>e", ":Rexplore<CR>", { noremap = true, silent = tru
 vim.keymap.set("n", "<leader>bc", ":bd<CR>", { noremap = true, silent = true })
 
 -- move focus to different windows
-vim.keymap.set('n', '<C-l>', '<C-W><C-L>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-k>', '<C-W><C-K>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-j>', '<C-W><C-J>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-h>', '<C-W><C-H>', { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-W><C-L>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-W><C-K>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-W><C-J>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-h>", "<C-W><C-H>", { noremap = true, silent = true })
 
 -- bufferline mapping
 -- vim.keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>");
@@ -26,4 +26,4 @@ vim.keymap.set('n', '<C-h>', '<C-W><C-H>', { noremap = true, silent = true })
 -- vim.keymap.set("n", "<leader>bmp", ":BufferLineMovePrev<CR>");
 
 -- undotree mapping
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
