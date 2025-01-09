@@ -4,26 +4,21 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         require("telescope").setup({
-            defaults = {
-                layout_strategy = "vertical",
-                layout_config = {
-                    vertical = {
-                        height = 0.9,           -- Adjust height (fraction of screen height)
-                        preview_height = 0.4,   -- Height of the preview window
-                    },
-                    preview_cutoff = 40,      -- Don"t show preview for narrow windows
-                },
-                -- Other default settings
+            defaults = require("telescope.themes").get_dropdown({
                 prompt_prefix = "🔍 ",
-                selection_caret = "❯ ",
-            },
+                sorting_strategy = "ascending",
+                layout_config = {
+                    width = 0.8,
+                    prompt_position = "top",
+                },
+            }),
         })
     end,
     keys = {
-        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files", mode = "n" },
-        { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep", mode = "n" },
-        { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers", mode = "n" },
-        { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Telescope find old files", mode = "n" },
-        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Vim help tags", mode = "n" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files",     mode = "n" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Telescope live grep",      mode = "n" },
+        { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Telescope buffers",        mode = "n" },
+        { "<leader>fo", "<cmd>Telescope oldfiles<cr>",   desc = "Telescope find old files", mode = "n" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>",  desc = "Vim help tags",            mode = "n" },
     }
 }
