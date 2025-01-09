@@ -6,6 +6,9 @@ return {
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
             "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
         },
         config = function()
             local cmp = require("cmp")
@@ -43,6 +46,30 @@ return {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
+            })
+
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" }
+                }
+            })
+
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources(
+                    {
+                        { name = 'path' }
+                    },
+                    {
+                        {
+                            name = 'cmdline',
+                            option = {
+                                ignore_cmds = { 'Man', '!' }
+                            }
+                        }
+                    }
+                )
             })
         end,
     },
