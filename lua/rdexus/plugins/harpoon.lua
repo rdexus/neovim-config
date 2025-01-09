@@ -18,9 +18,9 @@ return {
         map("<leader>a", function() harpoon:list():add() end, "Add Buffer To List")
 
         map("<C-h>", function() harpoon:list():select(1) end, "Go to buffer 1")
-        map("<C-t>", function() harpoon:list():select(2) end, "Go to 2")
-        map("<C-n>", function() harpoon:list():select(3) end, "Go to 3")
-        map("<C-s>", function() harpoon:list():select(4) end, "Go to 4")
+        map("<C-t>", function() harpoon:list():select(2) end, "Go to buffer 2")
+        map("<C-n>", function() harpoon:list():select(3) end, "Go to buffer 3")
+        map("<C-s>", function() harpoon:list():select(4) end, "Go to buffer 4")
 
         map("<C-S-P>", function() harpoon:list():prev() end, "Go to previous buffer")
         map("<C-S-N>", function() harpoon:list():next() end, "Go to next buffer")
