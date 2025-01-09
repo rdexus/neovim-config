@@ -77,8 +77,7 @@ return {
     -- lsp
     {
         "neovim/nvim-lspconfig",
-        cmd = { "LspInfo", "LspInstall", "LspStart", "LspStop", "LspRestart" },
-        -- event = { "BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "williamboman/mason.nvim",
@@ -86,7 +85,6 @@ return {
             "j-hui/fidget.nvim",
         },
         config = function()
-            require("fidget").setup()
             local nvim_lsp = require("lspconfig")
             local mason = require("mason")
             local mason_lspconfig = require("mason-lspconfig")
@@ -98,21 +96,21 @@ return {
                 require("cmp_nvim_lsp").default_capabilities()
             )
 
+            require("fidget").setup()
             mason.setup()
             mason_lspconfig.setup({
                 automatic_installation = true,
                 ensure_installed = {
-                    -- lsps
-                    "bashls",
-                    "gopls",
-                    "lua_ls",
-                    "basedpyright",
-                    "yamlls",
                     "intelephense",
                     "html",
                     "ts_ls",
-                    "jsonls",
                     "cssls",
+                    "jsonls",
+                    "lua_ls",
+                    "bashls",
+                    "gopls",
+                    "basedpyright",
+                    "yamlls",
                     -- linters
                     -- "eslint_d",
                     -- "phpstan",
@@ -130,9 +128,9 @@ return {
                         local capabilities = lspconfig_defaults.capabilities
                         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-                        require("lspconfig").cssls.setup {
-                            capabilities = capabilities,
-                        }
+                        nvim_lsp.cssls.setup({
+                            capabilities = capabilities
+                        })
                     end
                 },
             })
