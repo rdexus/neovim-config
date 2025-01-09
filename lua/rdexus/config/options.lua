@@ -27,9 +27,9 @@ vim.opt.breakindent = true
 vim.opt.numberwidth = 2
 vim.opt.title = true
 vim.opt.confirm = true
-vim.opt.showmode = false
-vim.opt.cmdheight = 0
-vim.opt.laststatus = 0
+vim.opt.showmode = true
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 2
 vim.opt.preserveindent = true
 vim.opt.swapfile = false
 
