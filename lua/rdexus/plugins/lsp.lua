@@ -142,11 +142,11 @@ return {
                         vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                     end
 
-                    map("<leader>gd", telescope.lsp_definitions, "Goto Definition")
-                    map("<leader>gr", telescope.lsp_references, "Goto References")
-                    map("<leader>gi", telescope.lsp_implementations, "Goto Implementation")
-                    map("<leader>go", telescope.lsp_type_definitions, "Type Definition")
-                    map("<leader>p", telescope.lsp_document_symbols, "Document Symbols")
+                    map("gd", telescope.lsp_definitions, "Goto Definition")
+                    map("gi", telescope.lsp_implementations, "Goto Implementation")
+                    map("<leader>vrr", telescope.lsp_references, "Goto References")
+                    map("<leader>vtd", telescope.lsp_type_definitions, "Type Definition")
+                    map("<leader>vds", telescope.lsp_document_symbols, "Document Symbols")
                     map("<leader>vws", telescope.lsp_workspace_symbols, "Workspace Symbols")
                     map("<leader>vWs", telescope.lsp_dynamic_workspace_symbols, "Dynamic Workspace Symbols")
 
@@ -154,9 +154,9 @@ return {
                     map("<leader>vf", vim.lsp.buf.format, "Format file")
                     map("<leader>of", vim.diagnostic.open_float, "Open Diagnostic Float")
                     map("K", vim.lsp.buf.hover, "Hover Documentation")
-                    map("gd", vim.lsp.buf.declaration, "Goto Declaration")
+                    map("<leader>gd", vim.lsp.buf.declaration, "Goto Declaration")
                     map("<leader>vca", vim.lsp.buf.code_action, "Code Action")
-                    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
+                    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help,
                         { buffer = event.buf, desc = "LSP: Signature Documentation" })
                 end
             })
