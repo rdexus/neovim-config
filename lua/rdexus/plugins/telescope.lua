@@ -5,6 +5,13 @@ return {
     config = function()
         require("telescope").setup({
             defaults = require("telescope.themes").get_dropdown({
+                file_ignore_patterns = {
+                    "node_modules",
+                    "vendor",
+                    "dist",
+                    "build",
+                    "public",
+                },
                 prompt_prefix = "🔍 ",
                 sorting_strategy = "ascending",
                 layout_config = {
