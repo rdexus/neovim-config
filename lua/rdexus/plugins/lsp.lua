@@ -138,7 +138,7 @@ return {
 			conform.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					php = { "php-cs-fixer" },
+					-- php = { "php-cs-fixer" },
 					python = { "black", "isort" },
 					javascript = { "prettier" },
 				},
@@ -148,7 +148,7 @@ return {
 			mason_conform.setup({
 				ensure_installed = {
 					"stylua",
-					"php-cs-fixer",
+					-- "php-cs-fixer",
 					"black",
 					"isort",
 					"prettier",
@@ -161,7 +161,10 @@ return {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = "*",
 				callback = function()
-					vim.cmd("Format")
+					local file_extension = vim.fn.expand("%:e")
+                    if file_extension ~= "php" then
+                        vim.cmd("Format")
+                    end
 				end,
 			})
 

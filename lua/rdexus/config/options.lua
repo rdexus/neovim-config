@@ -35,7 +35,7 @@ vim.opt.swapfile = false
 
 -- set clipboard
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 -- netrw
@@ -48,8 +48,8 @@ vim.g.netrw_keepdir = 1
 
 -- open float diagnostic window
 vim.diagnostic.config({
-  signs = false,
-  virtual_text = false,
-  severity_sort = true,
-  update_in_insert = true,
+	signs = false,
+	virtual_text = false,
+	severity_sort = true,
+	update_in_insert = true,
 })
