@@ -162,9 +162,9 @@ return {
 				pattern = "*",
 				callback = function()
 					local file_extension = vim.fn.expand("%:e")
-                    if file_extension ~= "php" then
-                        vim.cmd("Format")
-                    end
+					if file_extension ~= "php" then
+						vim.cmd("Format")
+					end
 				end,
 			})
 
