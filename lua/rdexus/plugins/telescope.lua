@@ -4,10 +4,11 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
+		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	config = function()
 		require("telescope").setup({
-			defaults = require("telescope.themes").get_dropdown({
+			defaults = {
 				file_ignore_patterns = {
 					"node_modules",
 					"vendor",
@@ -21,8 +22,10 @@ return {
 					width = 0.8,
 					prompt_position = "top",
 				},
-			}),
+			},
 		})
+
+		require("telescope").load_extension("ui-select")
 	end,
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files", mode = "n" },
